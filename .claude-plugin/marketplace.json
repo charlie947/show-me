@@ -1,0 +1,19 @@
+{
+  "name": "show-me",
+  "owner": {
+    "name": "Charlie Hills",
+    "url": "https://charliehills.substack.com"
+  },
+  "plugins": [
+    {
+      "name": "show-me",
+      "source": ".",
+      "description": "Stop reading walls of AI text. Say \"show me\" and Claude renders what it just built as a self-contained page and opens it in your browser before it says a word about it. Two modes: SHOW for one artefact, PICK for a set of directions with a click-to-choose button on each. Handles the part nobody handles, which is that opening a file does not bring the browser forward, so the page sits behind whatever you were looking at and you never see it.",
+      "version": "1.0.0",
+      "metadata": {
+        "categories": ["productivity"],
+        "tags": ["visual output", "html", "rendering", "browser", "review", "design review"]
+      }
+    }
+  ]
+}
