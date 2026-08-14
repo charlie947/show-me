@@ -1,0 +1,7 @@
+{
+  "name": "show-me",
+  "version": "1.0.0",
+  "description": "Stop reading walls of AI text. Renders the answer as a page and opens it in front of you.",
+  "author": { "name": "Charlie Hills", "url": "https://charliehills.substack.com" },
+  "license": "MIT"
+}
