@@ -51,6 +51,61 @@ argument it makes - not the decoration, the argument. Then ask.
 a layout is your mental model of it, not the thing itself, so you get a ruling on the wrong
 object or no ruling at all. Render first, ask second.
 
+### Before you render: the one-sentence test
+
+Describe each direction in one sentence. **If the same sentence fits two of them, you restyled
+one idea instead of designing two.** Go back. A board of three variations on one device wastes
+the choice, because whatever they pick you have learned nothing.
+
+### The board
+
+Build this. It is deliberately plain so the options are the only thing with any visual weight,
+and every card carries a button that copies the pick, so they answer by clicking rather than by
+typing out which one they meant.
+
+```html
+<!doctype html><meta charset="utf-8"><title>Pick a direction</title>
+<style>
+ :root{--bg:#fff;--fg:#14171a;--mut:#5d6b7a;--line:#e3e8ef;--card:#f7f9fb;--accent:#c2410c}
+ @media (prefers-color-scheme:dark){
+   :root{--bg:#0f1418;--fg:#eef2f6;--mut:#9aa8b6;--line:#243039;--card:#161d23;--accent:#fb923c}}
+ *{box-sizing:border-box}
+ body{margin:0;background:var(--bg);color:var(--fg);padding:40px 32px 80px;
+      font:16px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+ h1{font-size:26px;margin:0 0 6px}
+ p.lede{margin:0 0 30px;color:var(--mut);max-width:70ch}
+ .grid{display:grid;gap:22px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+ .card{border:1px solid var(--line);border-radius:12px;background:var(--card);
+       padding:18px;display:flex;flex-direction:column;gap:10px}
+ .card img,.card svg{width:100%;display:block;border-radius:7px;border:1px solid var(--line)}
+ h2{font-size:17px;margin:0}
+ .angle{color:var(--mut);font-size:14px;margin:0;flex:1}
+ button{font:inherit;font-size:14px;padding:9px 14px;border-radius:7px;cursor:pointer;
+        border:1px solid var(--accent);background:transparent;color:var(--accent)}
+ button:hover{background:var(--accent);color:var(--bg)}
+</style>
+<h1>Pick a direction</h1>
+<p class="lede">One line on what to judge, and what to ignore.</p>
+<div class="grid">
+  <div class="card">
+    <!-- the render: <img src="data:image/png;base64,...">, an <svg>, or live HTML -->
+    <h2>A &mdash; name of the device</h2>
+    <p class="angle">The argument this one makes, in one line.</p>
+    <button onclick="navigator.clipboard.writeText('A');this.textContent='Copied — paste it back'">Pick A</button>
+  </div>
+  <!-- B and C the same -->
+</div>
+```
+
+Three rules that keep a board honest:
+
+- **Name the device, not the decoration.** "Timeline down the left" is a device. "Blue version" is
+  decoration, and it means you built the same thing twice.
+- **Embed every image.** A `<img src="/some/local/path.png">` renders as a broken icon the moment
+  the file moves. Base64 it into the page, or draw it in inline SVG or HTML.
+- **Judging shape? Render it greyscale and say so in the lede.** Colour decides the argument
+  before they have looked at the structure.
+
 ## Opening it properly
 
 **`open -a "Google Chrome" file.html` is not showing them anything.** It creates the tab and does
